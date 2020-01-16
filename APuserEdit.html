@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>add</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="layui/layui.js"></script>
+    <script src="layui/jquery-3.4.1.js"></script>
+    <script src="layui/APuserEdit.js"></script>
+  <script src="layui/jquery-1.11.3.js"></script>
+  <script src="layui/xm-select.js"></script>
+    
+    <!-- <script src="https://cdn.bootcss.com/qs/6.9.0/qs.min.js"></script> -->
+</head>
+<body class="childrenBody" >
+    <form class="layui-form" style="width:80%;" >
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">AP分组名称</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input groupName" lay-verify="required" placeholder="请输入名称" value="2" />
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">类型</label>
+            <div class="layui-input-block xm-select-demo" id="type">
+                <!-- <select name="hm1" id="hm1" lay-verify="required">
+                    <option value="1">办理事项</option>
+                    <option value="3">办理项</option>
+                    <option value="2">办事项</option>
+                </select> -->
+               </div> 
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">MAC地址</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input macAddress" lay-verify="" placeholder="请输入MAC地址" value="2">
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">IP地址</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input ipAddress" lay-verify="" placeholder="请输入IP地址" value="2">
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">序列号</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input serialNumber" lay-verify="required" placeholder="请输入序列号" value="2">
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">RadioMAC</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input radiomac" lay-verify="" placeholder="请输入安装地点" value="2">
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">安装大楼</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input installationBuilding" lay-verify="required" placeholder="请输入安装地点" value="2">
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">安装楼层</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input installationFloor" lay-verify="required" placeholder="请输入安装地点" value="2">
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">安装位置</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input installationLocation" lay-verify="required" placeholder="请输入安装地点" value="2">
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">安装时间</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input installationTime" lay-verify="data" placeholder="请输入安装地点" value="2">
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">接入控制器</label>
+            <div class="layui-input-block xm-select-demo" id="accessController">
+                <!-- <select name="hm1" id="hm1" lay-verify="required">
+                    <option value="1">办理事项</option>
+                    <option value="3">办理项</option>
+                    <option value="2">办事项</option>
+                </select> -->
+               </div> 
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">控制器端口</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input controllerPort" lay-verify="" placeholder="请输入备注" value="2">
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">AP分组</label>
+            <div class="layui-input-block xm-select-demo" id="group">
+                <!-- <select name="hm1" id="hm1" lay-verify="required">
+                    <option value="1">办理事项</option>
+                    <option value="3">办理项</option>
+                    <option value="2">办事项</option>
+                </select> -->
+               </div> 
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input remark" lay-verify="required" placeholder="请输入备注" value="2">
+            </div>
+        </div>
+        <!-- <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">操作</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input isDel" lay-verify="required" placeholder="请输入" >
+            </div>
+        </div> -->
+
+
+
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-sm" lay-submit="" lay-filter="addList" id="upa">立即修改</button>
+                <button type="reset" class="layui-btn layui-btn-sm layui-btn-primary">取消</button>
+            </div>
+        </div>
+    </form>
+    
+</body>
+</html>

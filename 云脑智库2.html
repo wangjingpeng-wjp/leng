@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="layui/css/layui.css" media="all" >
+    
+</head>
+<body style="margin:20px 0 0 20px ;">
+  <div class="layui-col-md3">
+   <div>
+     <input type="text" placeholder="城云科技"><button><span class="layui-badge layui-bg-gray">√</span></button>
+   <br>
+    <div class="layui-inline">
+        <input class="layui-input" name="id" id="demoReload" autocomplete="off" >
+      </div>
+      <button class="layui-btn" data-type="reload">搜索</button>
+    </div>
+   
+
+      <div id="test13" class="demo-tree-more"></div>
+   </div>
+
+   <div class="layui-col-md9" style="text-align:center">
+
+      <div class="demoTable">
+          
+          <div class="layui-inline">
+            <input class="layui-input" name="id" id="demoReload" autocomplete="off" placeholder="输入账号或姓名搜索">
+          </div>
+          <button class="layui-btn" data-type="reload">搜索</button>
+        </div>
+         
+        <!-- <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>  -->
+        
+        <table class="layui-hide" id="test"></table>
+        
+   </div>
+
+   <!-- <script src="layui/lay/modules/jquery.js"></script> -->
+   <script type="text/javascript" src="layui/layui.js"></script>
+   <script src="layui/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+      layui.use(['element','code','table','tree','laypage'], function(){
+          var element = layui.element
+          , code = layui.code
+          ,table = layui.table
+          ,form = layui.form
+          ,tree = layui.tree
+          ,laypage = layui.laypage;
+
+          tree.render({
+    elem: '#test13'
+    ,showLine: false  //是否开启连接线
+    ,data: 
+      [{
+    title: '部门树'
+    ,id: 1,
+    spread: true
+    ,children: [{
+      title: '业务管理委员会'
+      ,id: 1000
+      ,children: [{
+        title: '青山湖区'
+        ,id: 10001
+      },{
+        title: '高新区'
+        ,id: 10002
+      }]
+    },{
+      title: '技术管理委员会'
+      ,id: 1000
+      ,children: [{
+        title: '青山湖区'
+        ,id: 10001
+      },{
+        title: '高新区'
+        ,id: 10002
+      }]
+    },{
+      title: '运营财经管理委员会'
+      ,id: 1000
+      ,children: [{
+        title: '青山湖区'
+        ,id: 10001
+      },{
+        title: '高新区'
+        ,id: 10002
+      }]
+    }
+    
+    
+    ,{
+      title: '总裁办公室'
+      ,id: 1001
+    },{
+      title: '内控管理办公室'
+      ,id: 1002
+    }]
+  }]
+  });
+  table.render({
+//     response:{
+//  statusName: 'status' ,// 对应 code
+//  msgName: 'hint' , // 对应 msg
+//  countName: 'total' , // 对应 count
+//  dataName: 'data' // 对应 data
+// },
+    elem: '#test'
+    ,url:'http://10.12.102.11:8888/wlcManage/list'
+    ,cellMinWidth: 80
+    ,width:650
+    ,cols: [[
+      ,{type:'numbers',title:'序号',width:100}
+      ,{type: 'checkbox',width:100}
+      ,{field:'id', title:'账号', width:200, unresize: true, sort: true}
+      ,{field:'wealth', title: '姓名', minWidth:200, sort: true}
+    ]]
+    // ,id:'testReload'
+    ,page: true
+    // ,height:300
+    , response: {
+                    statusCode: 200 //重新规定成功的状态码为 200，table 组件默认为 0
+              }
+  ,parseData: function(res){ //res 即为原始返回的数据
+    return {
+      "code": res.code, //解析接口状态
+      "msg": res.message, //解析提示文本
+      "count": res.total, //解析数据长度
+      "data": res.data //解析数据列表
+    };
+  }
+  });
+  // var $ = layui.$, active = {
+  //   reload: function(){
+  //     var demoReload = $('#demoReload');
+      
+  //     //执行重载
+  //     table.reload('testReload', {
+  //       page: {
+  //         curr: 50, //重新从第 1 页开始
+  //         limit:3
+  //       }
+  //       ,where: {
+  //         key: {
+  //           id: demoReload.val()
+  //         }
+  //       }
+  //     }, 'data');
+  //   }
+  // };
+  
+  // $('.demoTable .layui-btn').on('click', function(){
+  //   var type = $(this).data('type');
+  //   active[type] ? active[type].call(this) : '';
+  // });
+
+
+
+});
+           
+
+
+    </script>
+</body></html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>add</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="layui/layui.js"></script>
+    <!-- <script src="layui/jquery-3.4.1.js"></script> -->
+    <script src="layui/userEdit.js"></script>
+    <script src="juqery/jquery-2.1.4/jquery.min.js"></script>
+  <!-- <script src="layui/jquery-1.11.3.js"></script> -->
+  <script src="layui/xm-select.js"></script>
+    
+    <!-- <script src="https://cdn.bootcss.com/qs/6.9.0/qs.min.js"></script> -->
+</head>
+<body class="childrenBody useredit111" >
+    <form class="layui-form" style="width:90%;" lay-filter="layuiadmin-for-role" >
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">ID</label>
+            <div class="layui-input-block">
+                <input type="text" id="id"  class="layui-input id" lay-verify="required" placeholder="请输入ID"  />
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">名称</label>
+            <div class="layui-input-block">
+                <input type="text" id="name" class="layui-input name" lay-verify="required" placeholder="请输入名称">
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">IP地址</label>
+            <div class="layui-input-block">
+                <input type="text" id="ipAddress" class="layui-input ipAddress" lay-verify="required" placeholder="请输入IP地址">
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">监听端口</label>
+            <div class="layui-input-block">
+                <input type="text" id="listenPort" class="layui-input listenPort" lay-verify="required" placeholder="请输入监听端口" >
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <div class="layui-form-item">
+                <label class="layui-form-label">监听协议:</label>
+                <div class="layui-input-block " >
+                 <select name="listenAgreement" id="listenAgreement" lay-filter="listenAgreement" >
+                     <option value="">请选择</option>
+                     <option value="3">苹果</option>
+                     <option value="4">葡萄</option>
+                     <option value="5">香蕉</option>
+                     <option value="6">芒果</option>
+                 </select>
+                </div>       
+            
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">安装地点</label>
+            <div class="layui-input-block">
+                <input type="text" id="location" class="layui-input location" lay-verify="required" placeholder="请输入安装地点" >
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <input type="text" id="remark" class="layui-input remark" lay-verify="required" placeholder="请输入备注" >
+            </div>
+        </div>
+        <!-- <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">操作</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input isDel" lay-verify="required" placeholder="请输入" >
+            </div>
+        </div> -->
+
+
+
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-sm" lay-submit="" lay-filter="addList"id="edits" >立即修改</button>
+                <button type="reset" class="layui-btn layui-btn-sm layui-btn-primary" >取消</button>
+            </div>
+        </div>
+    </form>
+    
+</body>
+</html>

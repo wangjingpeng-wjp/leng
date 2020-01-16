@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>add</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="layui/layui.js"></script>
+    <!-- <script src="layui/jquery-3.4.1.js"></script> -->
+    <script src="layui/APfzglEdit.js"></script>
+    <script src="juqery/jquery-2.1.4/jquery.min.js"></script>
+  <!-- <script src="layui/jquery-1.11.3.js"></script> -->
+  <script src="layui/xm-select.js"></script>
+    
+    <!-- <script src="https://cdn.bootcss.com/qs/6.9.0/qs.min.js"></script> -->
+</head>
+<body class="childrenBody" >
+    <form class="layui-form" style="width:80%; "  >
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">分组名称</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input name" lay-verify="required" placeholder="请输入名称" value="2" />
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">经度</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input longitude" lay-verify="required" placeholder="请输入经度" value="2">
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">纬度</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input latitude" lay-verify="required" placeholder="请输入纬度" value="2">
+            </div>
+        </div>
+        
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">客户单位</label>
+            <div class="layui-input-block xm-select-demo" id="customerUnit">
+                <!-- <select name="hm1" id="hm1" lay-verify="required">
+                    <option value="1">办理事项</option>
+                    <option value="3">办理项</option>
+                    <option value="2">办事项</option>
+                </select> -->
+               </div> 
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">联系人</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkman" lay-verify="required" placeholder="请输入联系人" value="2">
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">联系电话</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input telephone" lay-verify="phone" placeholder="请输入联系电话" >
+            </div>
+        </div>
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input remark" lay-verify="required" placeholder="请输入备注" value="2">
+            </div>
+        </div>
+        <!-- <div class="layui-form-item layui-row layui-col-xs12">
+            <label class="layui-form-label">操作</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input isDel" lay-verify="required" placeholder="请输入" >
+            </div>
+        </div> -->
+
+
+
+        <div class="layui-form-item layui-row layui-col-xs12">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-sm" lay-submit="" lay-filter="addList" id="upa">立即修改</button>
+                <button type="reset" class="layui-btn layui-btn-sm layui-btn-primary">取消</button>
+            </div>
+        </div>
+    </form>
+    
+</body>
+</html>

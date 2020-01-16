@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>上城项目 </title>
+  <link rel="stylesheet" href="layui/css/layui.css">
+  <script src="layui/layui.js"></script>
+  <!-- <script src="layui/jquery-3.4.1.js"></script> -->
+  <script src="juqery/jquery-2.1.4/jquery.min.js"></script>
+</head>
+<body class="layui-layout-body ">
+  <!-- class="childrenBody" -->
+  
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header" style="background-color: rgb(70, 184, 223)" >
+    <div class="layui-logo" style="color:rgb(85, 85, 161)">可视化运维监控系统</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item"><a href="">AP监控中心</a></li>
+      <li class="layui-nav-item"><a href="">设备管理</a></li>
+      <li class="layui-nav-item"><a href="">系统支撑</a></li>
+      <!-- <li class="layui-nav-item">
+        <a href="javascript:;">微课堂</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">邮件管理</a></dd>
+          <dd><a href="">消息管理</a></dd>
+          <dd><a href="">授权管理</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="">知识先锋</a></li>
+      <li class="layui-nav-item"><a href="">知识看板</a></li> -->
+     
+    </ul>
+  
+  </div>
+  
+  <div class="layui-side layui-bg-black" >
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test" >
+        <!-- <li class="layui-nav-item"><a href="">项目管理</a></li> -->
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">无线AP管理</a>
+          <dl class="layui-nav-child" style="padding-left: 30px;">
+            <dd><a href="无线控制器维护.html">无线控制器维护</a></dd>
+            <dd><a href="无线AP信息维护.html">无线AP信息维护</a></dd>
+            <dd><a href="无线AP分组管理.html">无线AP分组管理</a></dd> 
+          </dl>
+        </li>
+        <li class="layui-nav-item ">
+          <a href="javascript:;">应用服务器管理</a>
+          <dl class="layui-nav-child" style="padding-left: 30px;">
+            <dd><a href="javascript:;">01管理</a></dd>
+            <dd><a href="javascript:;">02管理</a></dd>
+            <dd><a href="">03管理</a></dd>
+          </dl>
+        </li>
+        <!-- <li class="layui-nav-item"><a href="">项目跟踪</a></li> -->
+      </ul>
+    </div>
+  </div>
+  
+  <div class="layui-body">
+    <!-- <form class="layui-form"> -->
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;">
+      <span class="layui-breadcrumb">
+            <a href="javascript:;">当前位置</a>
+            <a href="javascript:;">无线AP分组管理</a>
+            <!-- <a href="">配置库管理</a>
+            <a><cite>人员管理</cite></a> -->
+          </span>
+    </div>
+
+    <blockquote class="layui-elem-quote quoteBox">
+      <form class="layui-form">
+        
+        <div class="layui-inline">
+          <a class="layui-btn layui-btn-sm addNews_btn ">添加</a>
+        </div>
+
+        <!-- <div class="layui-inline">
+          <a class="layui-btn layui-btn-sm del_btn layui-btn-danger">批量删除</a>
+        </div> -->
+      </form>
+    </blockquote>
+    <table  lay-filter="test"class="layui-table" id="test" ></table>
+  </div>
+  
+  
+  <!-- <div class="layui-footer">
+    底部固定区域
+    © layui.com - 底部固定区域
+  </div> -->
+</div>
+
+
+
+<script type="text/html" id="barDemo">
+  
+  <a class="layui-btn layui-btn-xs layui-bg-black"  lay-event="edit">修改</a>
+  <!-- <a class="layui-btn layui-btn-xs" lay-event="detail" >查看</a> -->
+  <a class="layui-btn layui-btn-danger layui-btn-xs " lay-event="del" id="del">删除</a>
+  <!-- <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="detail" data-method="confirmTrans">添加</a> -->
+</script>
+
+
+<script>
+//JavaScript代码区域
+layui.use(['element','layer','table','laypage','form'], function(){
+  var element = layui.element
+   , layer = layui.layer
+   ,table = layui.table
+   ,laypage=layui.laypage
+   ,form= layui.form
+   ,$=layui.$
+   ,$=layui.jquery;
+  
+    function addUser(edit){
+        var index = layui.layer.open({
+            title : "添加信息",
+            type : 2,
+            area:['80%','80%'],
+            // width:100,
+            maxmin:true,
+            content : "APfzgladd.html",
+            success : function(layero, index){
+                var body = layui.layer.getChildFrame('body', index);
+                if(edit){
+                    body.find(".name").val(edit.name);  //鐧诲綍鍚�
+                    body.find(".longitude").val(edit.longitude);  //閭
+                    body.find(".latitude").val(edit.latitude);  //閭
+                    body.find(".customerUnit").val(edit.customerUnit);  //浼氬憳绛夌骇
+                    body.find(".linkman").val(edit.linkman);    //鐢ㄦ埛鐘舵€�
+                    body.find(".telephone").text(edit.telephone);    //鐢ㄦ埛绠€浠� 
+                    form.render();
+                }
+                setTimeout(function(){
+                    layui.layer.tips('点击此处返回列表', '.layui-layer-setwin .layui-layer-close', {
+                        tips: 3
+                    });
+                },500)
+            }
+        })
+        // layui.layer.full(index);
+        window.sessionStorage.setItem("index",index);
+        //鏀瑰彉绐楀彛澶у皬鏃讹紝閲嶇疆寮圭獥鐨勫楂橈紝闃叉瓒呭嚭鍙鍖哄煙锛堝F12璋冨嚭debug鐨勬搷浣滐級
+        // $(window).on("resize",function(){
+        //     layui.layer.full(window.sessionStorage.getItem("index"));
+        // })
+    }
+    $(".addNews_btn").click(function(){
+        addUser();
+    })
+//批量删除按钮
+// $(".del_btn").click(function(){
+//   layer.msg('请选择',{icon:2})
+// })
+
+   table.render({
+    elem: '#test'
+    // ,elem:'#demo'
+    // ,height: 480
+    ,url: 'http://10.12.102.11:8888/apGroup/list' //数据接口
+    // ,toolbar:'#toolbarDemo'//开启头部工具栏，并为其绑定左侧模板
+    ,title:'用户数据表' 
+    ,method:'post'
+    // ,cellMinWithd:80
+    ,cols: [[ //表头
+       {checkbox: true, fixed: true}
+      //  ,{type:'checkbox',fixed:true}
+      // ,{field: 'id', title: '主键ID', width:110, sort: true, fixed: 'left'}
+      ,{field: 'name', title: '分组名称',  align:'center'}
+      // ,{type:'checkbox'}//类型
+      ,{field: 'longitude', title: '经度',  align:'center'}
+      
+      ,{field: 'latitude', title: '纬度',  align:'center'}
+      ,{field: 'customerUnit', title: '客户单位',  align:'center'} 
+      ,{field: 'linkman', title: '联系人',  align:'center'}
+      ,{field: 'telephone', title: '联系电话', align:'center'}
+      ,{field: 'remark', title: '备注', align:'center'}
+      ,{field: 'isDel', title: '操作',  align:'center', toolbar: '#barDemo'}
+      // ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+    ]]
+    // ,ApiResult:{ 
+    ,page: {
+      layout:['limit','count','prev','page','next','skip','refresh'],
+      count:50,
+      groups:3,//显示3页
+      first:false,//不显示首页
+      last:false,//不显示尾页
+      curr:2,//设定初始在第二页
+      limit:3,//每页条数
+      theme:'#c00',
+      limits:[5,10,20,30],
+    
+    }
+    // ,toolbar:'default'
+    
+    ,height:400
+    // ,even:true
+    // ,done:function(res,curr,count){
+    //   $('#')
+    // }
+
+    // {
+    //   layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+    //        ,curr: 1 //设定初始在第 1 页
+    //        ,groups: 1 //只显示 1 个连续页码
+    //        ,first: false //不显示首页
+    //        ,last: false //不显示尾页
+
+    // }//开启分页
+    
+    // ,limits:[30,60]
+  , response: {
+                    statusCode: 200 //重新规定成功的状态码为 200，table 组件默认为 0
+              }
+  ,parseData: function(res){ //res 即为原始返回的数据
+    return {
+      "code": res.code, //解析接口状态
+      "msg": res.message, //解析提示文本
+      "count": res.total, //解析数据长度
+      "data": res.data //解析数据列表
+    };
+  }
+    
+  
+  });
+
+ 
+
+ 
+  
+  //监听行工具事件
+  table.on('tool(test)', function(obj){
+    var data = obj.data;
+    // console.log(data,11)
+    var layEvent=obj.event;
+    // if(obj.event === 'detail'){
+    //   layui.msg('特性'+JSON.stringify(data.cardPower),{icon:6,time:1000});
+    // }
+    // else 
+    if(obj.event === 'del'){
+      layer.confirm('是否删除', function(index){
+
+        console.log('index:'+index);
+        $.ajax({
+                        url:`http://10.12.102.11:8888/apGroup/delete/${data.id}`,
+                        type:'post',
+                        //data:{'id':},//向服务端发送删除的id
+                        success:function(suc){
+                          console.log(suc)
+                            if(suc.code==200){
+                                obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+                                layer.close(index);
+                                layer.msg("删除成功",{icon:1});
+                                //window.location.reload()
+                            }
+                            else{
+                                layer.msg("删除失败",{icon:5});
+                            }
+                        }
+                    });
+        
+        obj.del();
+        layer.close(index);
+        // 获取对象的id，cardid为自己命名的名称
+        // console.log(data.add);
+        // table.reload('test',{
+        //   // 路径
+        //   url:'${pageContext.request.contextPath}/add?method=post',
+        //   where:{'id[]':data.cardId}
+        // });
+      });  
+    } 
+        else if(obj.event === 'edit'){
+          console.log(data)
+          // addUser(data);
+          layer.open({
+            type:2,
+            closeBtn:2,
+            area:['80%','80%'],
+            title:"更改信息",
+            maxmin:true,
+            // fixed:false,
+            shadeClose:false,
+            // autoRefresh:true,
+            content:'APfzglEdit.html',
+            end:function (){
+              document.getElementById("")
+              location.reload();
+            }
+          
+          });
+          // 表单值
+      // ,{field: 'listenPort', title: '监听端口', width:100} 
+      // ,{field: 'listenAgreement', title: '监听协议', width: 100}
+      // ,{field: 'location', title: '安装地点', width: 100}
+      // ,{field: 'remark', title: '备注', width: 80}
+      // ,{field: 'isDel', title: '操作', width: 130, toolbar: '#barDemo'}
+          form.val("usereditform",{
+            "name":data.name,
+            "longitude":data.longitude,
+            "latitude":data.latitude,
+            "customerUnit":data.customerUnit,
+            "linkman":data.linkman,
+            "telephone":data.telephone,
+            "remark":data.remark,
+            "isDel":data.isDel
+
+          })
+         
+
+          // layer.prompt({
+          //   formType: 2
+          //   ,title:'更改名称'
+          //   ,value: data.name
+          //                                                        查询
+          }
+          // else if(obj.event==='detail'){
+          //   layer.alert('ID:'+ data.id + '<br>名称:' +  data.name + '<br>IP地址:' + data.ipAddress + '<br>监听端口:' + data.listenPort + '<br>监听协议:'
+          //    + data.listenAgreement + '<br>安装地点:' + data.location + '<br>备注:' + data.remark )
+          // }
+        //    , function(value, index){
+        //     obj.update({
+        //       name: value
+        //     //  ,listenPort: value
+        //     });
+        //     layer.close(index);
+        //   });
+        // }
+  });
+
+  
+  var $ = layui.$, active = {
+        reload: function(){
+          var demoReload = $('#demoReload');
+          
+          //执行重载
+          table.reload('testReload', {
+            page: {
+              curr: 1 //重新从第 1 页开始
+            }
+            ,where: {
+              key: {
+                id: demoReload.val()
+              }
+            }
+          }, 'data');
+        }
+      };
+
+  //  $(document).ready(function(){
+  //    $("#add").click(function(){
+
+  //    })
+  //  })
+ 
+ 
+  });
+  
+
+
+</script>
+
+</body>
+</html>
